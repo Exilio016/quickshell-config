@@ -5,11 +5,12 @@ import QtQuick.Controls
 Rectangle {
     color: Colors.background
     implicitWidth: 400
-    implicitHeight: 400
+    implicitHeight: layout.implicitHeight
     radius: 10
 
     property var workspaces: niri.workspaces
     ColumnLayout {
+        id: layout
         Text {
             Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
             Layout.topMargin: 10
@@ -22,8 +23,10 @@ Rectangle {
         ListView {
             model: niri.windows
             Layout.topMargin: 10
+            Layout.bottomMargin: 10
             Layout.preferredWidth: 400
-            Layout.preferredHeight: 300
+            Layout.preferredHeight: contentItem.childrenRect.height
+            Layout.maximumHeight: 300
             orientation: Qt.Vertical
             clip: true
             boundsBehavior: Flickable.StopAtBounds
