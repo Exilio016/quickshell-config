@@ -48,7 +48,8 @@ Rectangle {
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
                 onClicked: event => {
                     if (event.button == Qt.LeftButton) {
-                        popup_menu.open("VolumePopup.qml", 0);
+                        var pos = mapToItem(null, parent.x, parent.y).x;
+                        popup_menu.open("VolumePopup.qml", pos + parent.implicitWidth / 2);
                     } else if (event.button == Qt.MiddleButton)
                         audio.sink.audio.muted = !audio.sink.audio.muted;
                     else {
@@ -77,7 +78,8 @@ Rectangle {
                 implicitWidth: bat_text.implicitWidth
                 implicitHeight: bat_text.implicitHeight
                 onClicked: {
-                    popup_menu.open("PowerPopup.qml", 0);
+                    var pos = mapToItem(null, parent.x, parent.y).x;
+                    popup_menu.open("PowerPopup.qml", pos + implicitWidth / 2);
                 }
                 Text {
                     id: bat_text
@@ -109,7 +111,8 @@ Rectangle {
                 implicitWidth: time_text.implicitWidth
                 implicitHeight: time_text.implicitHeight
                 onClicked: {
-                    popup_menu.open("CalendarPopup.qml", 0);
+                    var pos = mapToItem(null, parent.x, parent.y).x;
+                    popup_menu.open("CalendarPopup.qml", pos + implicitWidth / 2);
                 }
                 Text {
                     id: time_text
@@ -133,7 +136,6 @@ Rectangle {
                 implicitHeight: settings_text.implicitHeight
                 onClicked: {
                     popup_menu.open("SettingsPopup.qml", 0);
-                    
                 }
                 Text {
                     id: settings_text
