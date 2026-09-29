@@ -43,6 +43,8 @@ Rectangle {
                 font.pixelSize: 16
                 font.bold: true
                 text: not_item.summary
+                elide: Text.ElideRight
+                Layout.preferredWidth: Math.min(implicitWidth, 380)
             }
 
             Text {
@@ -51,6 +53,8 @@ Rectangle {
                 font.pixelSize: 14
                 text: not_item.body
                 visible: not_item.body != ""
+                elide: Text.ElideRight
+                Layout.preferredWidth: Math.min(implicitWidth, 380)
             }
         }
         Item {
@@ -58,7 +62,7 @@ Rectangle {
         }
         Button {
             id: not_dismiss
-            Layout.alignment: Qt.AlignTop 
+            Layout.alignment: Qt.AlignTop
             Layout.topMargin: 10
             Layout.rightMargin: 10
             property var dismiss

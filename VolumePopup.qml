@@ -224,6 +224,8 @@ Rectangle {
                         text: audio.getName(modelData)
                         color: Colors.foreground
                         anchors.centerIn: parent
+                        elide: Text.ElideRight
+                        width: Math.min(implicitWidth, parent.width - 10)
                     }
                 }
                 HoverHandler {
@@ -278,6 +280,8 @@ Rectangle {
                         text: audio.getName(modelData)
                         color: Colors.foreground
                         anchors.centerIn: parent
+                        elide: Text.ElideRight
+                        width: Math.min(implicitWidth, parent.width - 10)
                     }
                 }
                 HoverHandler {
