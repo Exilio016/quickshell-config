@@ -21,6 +21,7 @@ ShellRoot {
         PanelWindow {
             id: bar
             required property var modelData
+            property int focused_workspace: 1
             screen: modelData
             color: "#80000000" //Transparent
 
@@ -62,6 +63,17 @@ ShellRoot {
                 Loader {
                     id: popup_menu_loader
                     anchors.fill: parent
+                }
+
+                function open(source, x_position) {
+                    popup_menu_loader.source = source
+                    if (x_position != 0) {
+                        popup_menu.anchor.rect.x = x_position - popup_menu_loader.implicitWidth / 2
+                    }
+                    else {
+                        popup_menu.anchor.rect.x = parentWindow.width - 10
+                    }   
+                    popup_menu.visible = true
                 }
             }
             PopupWindow {
@@ -118,17 +130,17 @@ ShellRoot {
         readonly property PwNode source: Pipewire.defaultAudioSource
         readonly property var nodes: Pipewire.nodes
         function setSink(node) {
-            Pipewire.preferredDefaultAudioSink = node
+            Pipewire.preferredDefaultAudioSink = node;
         }
         function setSource(node) {
-            Pipewire.preferredDefaultAudioSource = node
+            Pipewire.preferredDefaultAudioSource = node;
         }
         function getName(node): string {
-            if (node.nickname != "") 
-                return node.nickname
+            if (node.nickname != "")
+                return node.nickname;
             else if (node.description != "")
-                return node.description
-            return node.name
+                return node.description;
+            return node.name;
         }
         PwObjectTracker {
             objects: [audio.sink, audio.source]

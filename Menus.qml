@@ -48,8 +48,7 @@ Rectangle {
                 acceptedButtons: Qt.LeftButton | Qt.RightButton | Qt.MiddleButton
                 onClicked: event => {
                     if (event.button == Qt.LeftButton) {
-                        popup_menu_loader.source = "VolumePopup.qml";
-                        popup_menu.visible = true;
+                        popup_menu.open("VolumePopup.qml", 0);
                     } else if (event.button == Qt.MiddleButton)
                         audio.sink.audio.muted = !audio.sink.audio.muted;
                     else {
@@ -78,8 +77,7 @@ Rectangle {
                 implicitWidth: bat_text.implicitWidth
                 implicitHeight: bat_text.implicitHeight
                 onClicked: {
-                    popup_menu_loader.source = "PowerPopup.qml";
-                    popup_menu.visible = true;
+                    popup_menu.open("PowerPopup.qml", 0);
                 }
                 Text {
                     id: bat_text
@@ -111,8 +109,7 @@ Rectangle {
                 implicitWidth: time_text.implicitWidth
                 implicitHeight: time_text.implicitHeight
                 onClicked: {
-                    popup_menu_loader.source = "CalendarPopup.qml";
-                    popup_menu.visible = true;
+                    popup_menu.open("CalendarPopup.qml", 0);
                 }
                 Text {
                     id: time_text
@@ -135,8 +132,8 @@ Rectangle {
                 implicitWidth: settings_text.implicitWidth
                 implicitHeight: settings_text.implicitHeight
                 onClicked: {
-                    popup_menu_loader.source = "SettingsPopup.qml";
-                    popup_menu.visible = true;
+                    popup_menu.open("SettingsPopup.qml", 0);
+                    
                 }
                 Text {
                     id: settings_text

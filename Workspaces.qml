@@ -19,6 +19,7 @@ Rectangle {
         Repeater {
             model: niri.workspaces
             Rectangle {
+                property bool active: model.isActive
                 visible: (model.output == monitor)
                 color: (model.isActive ? Colors.color1 : Colors.background)
                 width: 24
@@ -35,6 +36,11 @@ Rectangle {
                     font.pixelSize: 16
                     color: Colors.foreground
                     text: model.index
+                }
+                onActiveChanged: {
+                    if (model.isActive) {
+                        bar.focused_workspace = model.id
+                    }
                 }
             }
         }
