@@ -14,7 +14,12 @@ Item {
     signal dateSelected(string dateStr)
     Column {
         anchors.fill: parent
-        anchors.margins: 20
+        anchors {
+            topMargin: 20
+            bottomMargin: 0
+            leftMargin: 20
+            rightMargin: 20
+        }
         spacing: 20
 
         Row {

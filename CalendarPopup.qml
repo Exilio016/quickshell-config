@@ -92,8 +92,15 @@ Rectangle {
     }
 
     Text {
-        id: calendar_title
+        id: separator
+        font.pixelSize: 16
         anchors.top: calendar_widget.bottom
+        anchors.horizontalCenter: parent.horizontalCenter
+        text: "──────────────────────────────────────"
+    }
+    Text {
+        id: calendar_title
+        anchors.top: separator.bottom
         anchors.horizontalCenter: parent.horizontalCenter
         font.pixelSize: 16
         text: Qt.formatDateTime(clock.date, "dd/MM/yyyy hh:mm:ss")
