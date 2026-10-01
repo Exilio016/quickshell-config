@@ -46,9 +46,12 @@ Rectangle {
                 height: visible ? 35 : 0
 
                 onClicked: {
-                    niri.focusWindow(id)
+                    niri.focusWindow(id);
                 }
 
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
+                }
                 background: Rectangle {
                     color: parent.hovered ? Colors.color3 : (isFocused ? Colors.color2 : Colors.color1)
                     radius: 10

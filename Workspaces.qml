@@ -5,7 +5,8 @@ import Quickshell
 Rectangle {
     required property string monitor
     color: Colors.background
-    implicitWidth: child.implicitWidth
+    Layout.fillWidth: true
+    Layout.maximumWidth: child.implicitWidth
     radius: 30
     RowLayout {
         id: child

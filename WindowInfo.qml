@@ -1,15 +1,20 @@
 import QtQuick
+import QtQuick.Layouts
 
 Rectangle {
     color: Colors.background
-    implicitWidth: child.implicitWidth
     radius: 30
+    Layout.fillWidth: true
+    Layout.maximumWidth: child.implicitWidth
     MouseArea {
-        width: parent.implicitWidth
-        height: parent.implicitHeight
+        width: parent.width
+        height: parent.height
 
         onClicked: {
-            popup_menu.open("WindowPopup.qml", parent.x + parent.implicitWidth / 2);
+            popup_menu.open("WindowPopup.qml", parent.x + parent.width / 2);
+        }
+        HoverHandler {
+            cursorShape: Qt.PointingHandCursor
         }
     }
     Text {
@@ -21,5 +26,7 @@ Rectangle {
         rightPadding: 10
         font.pixelSize: 16
         color: Colors.foreground
+        elide: Qt.ElideRight
+        width: parent.width + 10
     }
 }

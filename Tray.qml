@@ -23,6 +23,7 @@ RowLayout {
             width: 20
             height: 20
             onClicked: event => {
+                menu_anchor.close();
                 var windowCoords = mapToItem(bar.contentItem, event.x, event.y);
                 if (event.button == Qt.LeftButton) {
                     modelData.activate();

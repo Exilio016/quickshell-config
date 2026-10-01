@@ -5,8 +5,9 @@ import Quickshell
 
 Rectangle {
     property int fontSize: 16
-    implicitWidth: child.implicitWidth
     color: "transparent"
+    Layout.fillWidth: true
+    Layout.maximumWidth: child.implicitWidth
 
     RowLayout {
         id: child
@@ -17,8 +18,10 @@ Rectangle {
             MouseArea {
                 anchors.verticalCenter: parent.verticalCenter
                 implicitWidth: light_text.implicitWidth
-                implicitHeight: light_text.implicitHeight
-
+                implicitHeight: parent.implicitHeight
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
+                }
                 onWheel: w => {
                     let per = light.percent;
                     per += w.angleDelta.y > 0 ? 1 : -1;
@@ -38,7 +41,10 @@ Rectangle {
             MouseArea {
                 anchors.verticalCenter: parent.verticalCenter
                 implicitWidth: vol_text.implicitWidth
-                implicitHeight: vol_text.implicitHeight
+                implicitHeight: parent.implicitHeight
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
+                }
                 onWheel: w => {
                     let per = Math.round(audio.sink.audio.volume * 100);
                     per += w.angleDelta.y > 0 ? 1 : -1;
@@ -76,10 +82,13 @@ Rectangle {
             MouseArea {
                 anchors.verticalCenter: parent.verticalCenter
                 implicitWidth: bat_text.implicitWidth
-                implicitHeight: bat_text.implicitHeight
+                implicitHeight: parent.implicitHeight
                 onClicked: {
                     var pos = mapToItem(null, parent.x, parent.y).x;
                     popup_menu.open("PowerPopup.qml", pos + implicitWidth / 2);
+                }
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
                 }
                 Text {
                     id: bat_text
@@ -109,10 +118,13 @@ Rectangle {
             MouseArea {
                 anchors.verticalCenter: parent.verticalCenter
                 implicitWidth: time_text.implicitWidth
-                implicitHeight: time_text.implicitHeight
+                implicitHeight: parent.implicitHeight
                 onClicked: {
                     var pos = mapToItem(null, parent.x, parent.y).x;
                     popup_menu.open("CalendarPopup.qml", pos + implicitWidth / 2);
+                }
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
                 }
                 Text {
                     id: time_text
@@ -133,9 +145,12 @@ Rectangle {
             MouseArea {
                 anchors.verticalCenter: parent.verticalCenter
                 implicitWidth: settings_text.implicitWidth
-                implicitHeight: settings_text.implicitHeight
+                implicitHeight: parent.implicitHeight
                 onClicked: {
                     popup_menu.open("SettingsPopup.qml", 0);
+                }
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
                 }
                 Text {
                     id: settings_text

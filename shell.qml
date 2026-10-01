@@ -66,14 +66,13 @@ ShellRoot {
                 }
 
                 function open(source, x_position) {
-                    popup_menu_loader.source = source
+                    popup_menu_loader.source = source;
                     if (x_position != 0) {
-                        popup_menu.anchor.rect.x = x_position - popup_menu_loader.implicitWidth / 2
+                        popup_menu.anchor.rect.x = x_position - popup_menu_loader.implicitWidth / 2;
+                    } else {
+                        popup_menu.anchor.rect.x = parentWindow.width - 10;
                     }
-                    else {
-                        popup_menu.anchor.rect.x = parentWindow.width - 10
-                    }   
-                    popup_menu.visible = true
+                    popup_menu.visible = true;
                 }
             }
             PopupWindow {
