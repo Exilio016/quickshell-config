@@ -66,6 +66,10 @@ ShellRoot {
                 }
 
                 function open(source, x_position) {
+                    if (popup_menu_loader.source == source && popup_menu.visible) {
+                        popup_menu.visible = false;
+                        return;
+                    }
                     popup_menu_loader.source = source;
                     if (x_position != 0) {
                         popup_menu.anchor.rect.x = x_position - popup_menu_loader.implicitWidth / 2;
