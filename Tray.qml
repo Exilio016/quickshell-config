@@ -47,6 +47,9 @@ RowLayout {
                 }
                 source: getTrayIcon(modelData.icon)
                 anchors.fill: parent
+                HoverHandler {
+                    cursorShape: Qt.PointingHandCursor
+                }
             }
         }
     }
